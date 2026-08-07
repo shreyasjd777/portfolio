@@ -12,7 +12,6 @@ export const profile = {
     'I am a product-minded full-stack engineer who builds dependable web and mobile products from idea to launch. I enjoy connecting thoughtful interfaces with reliable APIs, data, and workflows.',
     'My work spans booking platforms, student-success experiences, social tools, and mobile media products. Recruiters may reach out with relevant opportunities.',
   ],
-  focusAreas: ['Full-stack products', 'Reliable systems', 'Applied AI'],
   email: 'shreyasjd777@gmail.com',
   resumeUrl: '/Shreyas_Deshpande_Resume.pdf',
   social: [
@@ -20,6 +19,30 @@ export const profile = {
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/shreyasjd/', icon: 'linkedin' },
   ],
 };
+
+// Named technical skills from the résumé, grouped for the hero overview.
+export const skillGroups = [
+  {
+    label: 'Languages',
+    skills: ['JavaScript', 'TypeScript', 'Python', 'SQL', 'HTML', 'CSS', 'C++', 'Bash', 'LaTeX'],
+  },
+  {
+    label: 'Frontend',
+    skills: ['React.js', 'Next.js', 'React Native', 'Tailwind', 'Expo'],
+  },
+  {
+    label: 'Backend',
+    skills: ['Node.js', 'Express.js', 'Flask', 'Django', 'REST API'],
+  },
+  {
+    label: 'Databases',
+    skills: ['PostgreSQL', 'Supabase', 'Firebase'],
+  },
+  {
+    label: 'Tools & Infrastructure',
+    skills: ['Git', 'Docker', 'CI/CD', 'Google Cloud', 'Render', 'Vercel', 'Cursor', 'Claude Code', 'Agile'],
+  },
+];
 
 export const experience = [
   {

@@ -60,35 +60,6 @@
   gap: 0.9rem;
   max-width: 58ch;
   color: var(--text-secondary);
-  margin-bottom: 1.75rem;
-}
-
-.hero-focus {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 2.25rem;
-}
-
-.hero-focus li {
-  font-size: 0.82rem;
-  padding: 0.4rem 0.85rem;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-}
-
-.hero-cta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.9rem;
-}
-
-.hero-social {
-  display: flex;
-  gap: 0.6rem;
-  margin-left: 0.25rem;
 }
 
 .hero-card {
@@ -191,57 +162,46 @@
   border-color: var(--accent);
 }
 
-.hero-scroll-cue {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+.hero-skills {
+  grid-column: 1 / -1;
+  width: 100%;
+  padding-top: 0.25rem;
+}
+
+.hero-skill-groups {
   display: flex;
   flex-direction: column;
+  gap: 1.55rem;
+}
+
+.hero-skill-group dt {
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.85rem;
+}
+
+.hero-skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.hero-skill-list li {
+  min-height: 3rem;
+  display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-  transition: color 0.25s var(--ease-out);
-}
-
-.hero-scroll-cue:hover {
-  color: var(--accent);
-}
-
-.hero-scroll-line {
-  width: 1px;
-  height: 2.4rem;
-  background: var(--text-tertiary);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-scroll-line::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--accent);
-  transform: translateY(-100%);
-  animation: scroll-line 2.2s var(--ease-out) infinite;
-}
-
-@keyframes scroll-line {
-  0% {
-    transform: translateY(-100%);
-  }
-  60%,
-  100% {
-    transform: translateY(100%);
-  }
+  padding: 0.65rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  background: color-mix(in srgb, var(--bg-elevated) 42%, transparent);
+  font-size: 1rem;
+  line-height: 1.2;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-card-status::after,
-  .hero-scroll-line::after {
+  .hero-card-status::after {
     animation: none;
   }
 }
@@ -661,17 +621,34 @@
 
 @media (max-width: 560px) {
   .hero {
-    padding-top: 7.5rem;
+    padding: 7.5rem 1rem 4.5rem;
   }
 
-  .hero-cta {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+  .hero-inner {
+    gap: 2.25rem;
   }
 
-  .hero-social {
-    margin-left: 0;
+  .hero-skills {
+    padding-top: 0;
+  }
+
+  .hero-skill-groups {
+    gap: 1.25rem;
+  }
+
+  .hero-skill-group dt {
+    font-size: 0.86rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .hero-skill-list {
+    gap: 0.45rem;
+  }
+
+  .hero-skill-list li {
+    min-height: 2.5rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
   }
 
   .timeline-item {

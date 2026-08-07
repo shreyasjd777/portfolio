@@ -1,7 +1,5 @@
-import { profile } from '../data/content';
-import { ArrowUpRightIcon, GithubIcon, LinkedinIcon, MailIcon, PaperIcon, XIcon } from './Icons';
-
-const socialIcons = { github: GithubIcon, linkedin: LinkedinIcon, x: XIcon };
+import { profile, skillGroups } from '../data/content';
+import { MailIcon } from './Icons';
 
 export default function Hero() {
   return (
@@ -22,40 +20,6 @@ export default function Hero() {
             {profile.bio.map((para, i) => (
               <p key={i}>{para}</p>
             ))}
-          </div>
-
-          <ul className="hero-reveal hero-focus" style={{ '--d': '4' }}>
-            {profile.focusAreas.map((area) => (
-              <li key={area}>{area}</li>
-            ))}
-          </ul>
-
-          <div className="hero-reveal hero-cta" style={{ '--d': '5' }}>
-            <a
-              className="btn btn-primary"
-              href="#projects"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              View projects
-              <ArrowUpRightIcon width={16} height={16} />
-            </a>
-            <a className="btn btn-ghost" href={profile.resumeUrl}>
-              <PaperIcon width={16} height={16} />
-              Résumé
-            </a>
-            <div className="hero-social">
-              {profile.social.map((s) => {
-                const Icon = socialIcons[s.icon];
-                return (
-                  <a key={s.label} href={s.href} className="icon-btn" aria-label={s.label} target="_blank" rel="noreferrer">
-                    <Icon width={17} height={17} />
-                  </a>
-                );
-              })}
-            </div>
           </div>
         </div>
 
@@ -87,17 +51,24 @@ export default function Hero() {
             </div>
           </dl>
         </div>
-      </div>
 
-      <button
-        type="button"
-        className="hero-scroll-cue"
-        aria-label="Scroll to experience"
-        onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
-      >
-        <span className="hero-scroll-line" />
-        Scroll
-      </button>
+        <div className="hero-reveal hero-skills" style={{ '--d': '4' }}>
+          <dl className="hero-skill-groups">
+            {skillGroups.map((group) => (
+              <div className="hero-skill-group" key={group.label}>
+                <dt>{group.label}</dt>
+                <dd>
+                  <ul className="hero-skill-list" aria-label={`${group.label} skills`}>
+                    {group.skills.map((skill) => (
+                      <li key={skill}>{skill}</li>
+                    ))}
+                  </ul>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
     </section>
   );
 }
