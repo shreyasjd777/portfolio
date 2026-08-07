@@ -4,7 +4,33 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portfolio</title>
+    <script>
+      try {
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme === 'dark' || storedTheme === 'light') {
+          document.documentElement.setAttribute('data-theme', storedTheme);
+        }
+      } catch {
+        // The app applies its default theme when storage is unavailable.
+      }
+    </script>
+    <title>Shreyas Deshpande — Product-minded full-stack engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Shreyas Deshpande, a product-minded full-stack engineer building reliable web and mobile products."
+    />
+    <meta property="og:title" content="Shreyas Deshpande — Product-minded full-stack engineer" />
+    <meta
+      property="og:description"
+      content="Portfolio of Shreyas Deshpande, a product-minded full-stack engineer building reliable web and mobile products."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Shreyas Deshpande — Product-minded full-stack engineer" />
+    <meta
+      name="twitter:description"
+      content="Portfolio of Shreyas Deshpande, a product-minded full-stack engineer building reliable web and mobile products."
+    />
   </head>
   <body>
     <div id="root"></div>
