@@ -8,6 +8,7 @@ import Hero from './components/Hero';
 import Nav from './components/Nav';
 import Projects from './components/Projects';
 import { useReveal } from './hooks/useReveal';
+import { useSmoothScroll } from './hooks/useSmoothScroll';
 import { useTheme } from './hooks/useTheme';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   const [isReady, setIsReady] = useState(false);
 
   useReveal([isReady]);
+  useSmoothScroll();
 
   // The intro plays inside the real header logo (see Nav/AnimatedLogo) —
   // there is no separate loading screen to unmount. Scroll stays locked

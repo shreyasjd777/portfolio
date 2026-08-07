@@ -526,15 +526,17 @@ html.is-loading .nav-brand-mark.is-ready .animated-logo-fallback {
 }
 
 /*
- * Retained initials: sequential bounce-in, then a direct, independently
- * eased translation from their measured intro position to their real
- * final position in the header (transform: none at rest, since the base
- * CSS position — left: var(--final-x) — is already correct).
+ * Retained initials: sequential bounce-in, then a two-stage journey —
+ * S and D first travel from their spelled-out positions toward each other,
+ * meeting and holding as the joined "SD" at the center of the screen, then
+ * relocate together to their real position in the header (transform: none
+ * at rest, since the base CSS position — left: var(--final-x) — is already
+ * correct).
  */
 .animated-logo-anchor.is-ready {
   animation:
     logo-letter-bounce 580ms cubic-bezier(0.2, 0.8, 0.2, 1) calc(var(--letter-index) * 35ms) both,
-    logo-letter-dock 1.35s cubic-bezier(0.4, 0, 0.2, 1) 1.15s forwards;
+    logo-letter-dock 1.35s 1.15s forwards;
 }
 
 /*
@@ -563,16 +565,30 @@ html.is-loading .nav-brand-mark.is-ready .animated-logo-fallback {
 }
 
 /*
- * The S travels its own straight line from "Shreyas" to the header; the
- * D travels its own straight line from "Deshpande" to the header. Neither
- * initial moves toward the other first.
+ * The S travels in from "Shreyas" and the D travels in from "Deshpande",
+ * converging on the joined "SD" shape at the center of the screen (0–48%).
+ * They hold there together, already reading as the finished mark (48–62%),
+ * then relocate as a pair to the header (62–100%). Each stage gets its own
+ * easing hint: a confident approach into the meet point, a held beat, and a
+ * settled arrival into the header — never a bounce or overshoot.
  */
 @keyframes logo-letter-dock {
-  from {
+  0% {
     opacity: 1;
     transform: translate3d(var(--intro-x), var(--intro-y), 0) scale3d(var(--intro-scale), var(--intro-scale), 1);
+    animation-timing-function: cubic-bezier(0.3, 0, 0.2, 1);
   }
-  to {
+  48% {
+    opacity: 1;
+    transform: translate3d(var(--meet-x), var(--meet-y), 0) scale3d(var(--meet-scale), var(--meet-scale), 1);
+    animation-timing-function: linear;
+  }
+  62% {
+    opacity: 1;
+    transform: translate3d(var(--meet-x), var(--meet-y), 0) scale3d(var(--meet-scale), var(--meet-scale), 1);
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  100% {
     opacity: 1;
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }

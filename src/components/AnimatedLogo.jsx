@@ -11,6 +11,11 @@ const LAST_INITIAL_INDEX = FULL_NAME.lastIndexOf(' ') + 1;
 // A moderate scale keeps the intro name crisp while still reading clearly at
 // the center of the viewport (large transforms tend to rasterize small text).
 const INTRO_SCALE = 2.65;
+// The size the joined "SD" holds at the center of the screen, after the two
+// initials have traveled toward each other but before they relocate to the
+// header. Between the spelled-out intro scale and the final header scale (1)
+// so the journey reads as two clear, deliberate steps rather than one blur.
+const MEET_SCALE = 1.8;
 // Matches the CSS timing: dock starts at 1.15s and runs 1.35s (ends ~2.5s).
 // Wait until the initials have fully docked before revealing the rest of the
 // header, so the animated name visibly arrives at the real SD button.
@@ -66,6 +71,12 @@ export default function AnimatedLogo({ onIntroSettle }) {
         logo.style.setProperty('--logo-width', `${firstWidth + lastWidth}px`);
         logo.style.setProperty('--logo-height', `${logoRect.height}px`);
 
+        // Where the two initials meet: the same joined "SD" shape as the
+        // final logo, just held larger and centered on the viewport instead
+        // of docked in the header corner.
+        const meetLeft = window.innerWidth / 2 - ((firstWidth + lastWidth) * MEET_SCALE) / 2;
+        const meetTop = window.innerHeight / 2 - (logoRect.height * MEET_SCALE) / 2;
+
         let accumulatedWidth = 0;
 
         letterRefs.current.forEach((letterElement, index) => {
@@ -82,6 +93,18 @@ export default function AnimatedLogo({ onIntroSettle }) {
           letterElement.style.setProperty('--intro-x', `${introX}px`);
           letterElement.style.setProperty('--intro-y', `${introY}px`);
           letterElement.style.setProperty('--intro-scale', `${INTRO_SCALE}`);
+
+          if (index === FIRST_INITIAL_INDEX || index === LAST_INITIAL_INDEX) {
+            // finalX already encodes each initial's position within the
+            // joined "SD" pair, so it doubles as the offset within the
+            // meet block — just scaled up to MEET_SCALE instead of 1.
+            const meetX = meetLeft + finalX * MEET_SCALE - logoRect.left - finalX;
+            const meetY = meetTop - logoRect.top;
+
+            letterElement.style.setProperty('--meet-x', `${meetX}px`);
+            letterElement.style.setProperty('--meet-y', `${meetY}px`);
+            letterElement.style.setProperty('--meet-scale', `${MEET_SCALE}`);
+          }
 
           accumulatedWidth += letterWidths[index];
         });

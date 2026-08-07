@@ -56,11 +56,11 @@ export function ArrowUpRightIcon(props) {
   );
 }
 
-export function DownloadIcon(props) {
+export function PaperIcon(props) {
   return (
     <svg {...base} {...props}>
-      <path d="M12 4v11m0 0l-4-4m4 4l4-4" />
-      <path d="M5 18.5h14" />
+      <path d="M14.5 3.5h-7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V8z" />
+      <path d="M14.5 3.5V8h4.5" />
     </svg>
   );
 }

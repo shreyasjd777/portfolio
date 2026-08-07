@@ -1,5 +1,5 @@
 import { profile } from '../data/content';
-import { ArrowUpRightIcon, DownloadIcon, GithubIcon, LinkedinIcon, MailIcon, XIcon } from './Icons';
+import { ArrowUpRightIcon, GithubIcon, LinkedinIcon, MailIcon, PaperIcon, XIcon } from './Icons';
 
 const socialIcons = { github: GithubIcon, linkedin: LinkedinIcon, x: XIcon };
 
@@ -43,7 +43,7 @@ export default function Hero() {
               <ArrowUpRightIcon width={16} height={16} />
             </a>
             <a className="btn btn-ghost" href={profile.resumeUrl}>
-              <DownloadIcon width={16} height={16} />
+              <PaperIcon width={16} height={16} />
               Résumé
             </a>
             <div className="hero-social">

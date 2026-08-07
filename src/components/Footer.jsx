@@ -1,5 +1,5 @@
 import { profile } from '../data/content';
-import { ArrowUpRightIcon, DownloadIcon, LinkedinIcon, MailIcon } from './Icons';
+import { ArrowUpRightIcon, LinkedinIcon, MailIcon, PaperIcon } from './Icons';
 
 const linkedin = profile.social.find((s) => s.icon === 'linkedin');
 
@@ -28,7 +28,7 @@ export default function Footer() {
             <MailIcon width={17} height={17} />
           </a>
           <a className="footer-icon" href={profile.resumeUrl} aria-label="Download résumé">
-            <DownloadIcon width={17} height={17} />
+            <PaperIcon width={17} height={17} />
           </a>
         </div>
       </footer>

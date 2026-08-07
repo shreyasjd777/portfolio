@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { profile } from '../data/content';
 import AnimatedLogo from './AnimatedLogo';
-import { CloseIcon, DownloadIcon, LinkedinIcon, MailIcon, MenuIcon, MoonIcon, SunIcon } from './Icons';
+import { CloseIcon, LinkedinIcon, MailIcon, MenuIcon, MoonIcon, PaperIcon, SunIcon } from './Icons';
 
 const LINKS = [
   { id: 'about', label: 'Home' },
@@ -118,7 +118,7 @@ export default function Nav({ theme, onToggleTheme, onIntroSettle }) {
               <MailIcon width={16} height={16} />
             </a>
             <a className="icon-btn" href={profile.resumeUrl} aria-label="Download résumé">
-              <DownloadIcon width={16} height={16} />
+              <PaperIcon width={16} height={16} />
             </a>
           </div>
           <button
@@ -176,7 +176,7 @@ export default function Nav({ theme, onToggleTheme, onIntroSettle }) {
             <MailIcon width={17} height={17} />
           </a>
           <a className="icon-btn" href={profile.resumeUrl} aria-label="Download résumé">
-            <DownloadIcon width={17} height={17} />
+            <PaperIcon width={17} height={17} />
           </a>
         </div>
       </nav>
